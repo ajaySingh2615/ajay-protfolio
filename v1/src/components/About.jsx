@@ -320,35 +320,12 @@ const About = () => {
                 className="absolute -bottom-2 -right-2 w-20 h-20 border-4 border-primary/20 rounded-lg z-10"
               />
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.4 }}
-                className="relative w-full h-full group cursor-pointer"
-              >
+              <motion.div className="relative w-full h-full">
                 <img
                   src="/workplace.jpg"
                   alt="Professional workspace"
                   className="w-full h-full object-cover"
                 />
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-dark/20 to-dark/30 mix-blend-multiply"
-                />
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 flex items-center justify-center backdrop-blur-sm"
-                >
-                  <motion.span
-                    whileHover={{ scale: 1.1 }}
-                    className="text-light text-lg font-medium bg-dark/80 px-6 py-2 rounded-full shadow-lg"
-                  >
-                    View Workspace
-                  </motion.span>
-                </motion.div>
               </motion.div>
             </div>
 

@@ -16,7 +16,7 @@ import {
   FaGlobe,
   FaDesktop,
   FaTerminal,
-  FaGithub,
+  FaCogs,
   FaDocker,
   FaReact,
   FaNodeJs,
@@ -31,6 +31,7 @@ import {
   FaPhp,
   FaApple,
   FaAndroid,
+  FaGithub,
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -43,6 +44,9 @@ import {
   SiExpress,
   SiFirebase,
   SiKubernetes,
+  SiSpringboot,
+  SiSpring,
+  SiIntellijidea,
 } from "react-icons/si";
 
 const Skills = () => {
@@ -184,6 +188,32 @@ const Skills = () => {
         ],
       },
       {
+        name: "Spring Boot",
+        icon: SiSpringboot,
+        color: "#6DB33F",
+        level: 85,
+        description:
+          "Proficient in Spring Boot for building enterprise-grade microservices and RESTful APIs.",
+        projects: [
+          "Enterprise Microservices",
+          "Authentication System",
+          "API Gateway",
+        ],
+      },
+      {
+        name: "Spring Framework",
+        icon: SiSpring,
+        color: "#6DB33F",
+        level: 80,
+        description:
+          "Strong experience with Spring Framework and core modules including Spring MVC, Spring Data, and Spring Security.",
+        projects: [
+          "Enterprise Applications",
+          "Web Services",
+          "Backend Systems",
+        ],
+      },
+      {
         name: "GraphQL",
         icon: SiGraphql,
         color: "#E10098",
@@ -320,8 +350,8 @@ const Skills = () => {
       },
       {
         name: "GitHub Actions",
-        icon: FaGithub,
-        color: "#181717",
+        icon: FaCogs,
+        color: "#2088FF",
         level: 85,
         description:
           "Advanced CI/CD automation with GitHub Actions for testing, building, and deployment.",
@@ -376,6 +406,19 @@ const Skills = () => {
           "Open Source Contributions",
           "Team Collaboration",
           "Release Management",
+        ],
+      },
+      {
+        name: "IntelliJ IDEA",
+        icon: SiIntellijidea,
+        color: "#000000",
+        level: 90,
+        description:
+          "Advanced user of IntelliJ IDEA with customized workflows, plugins, and configurations for efficient development.",
+        projects: [
+          "Java Enterprise Development",
+          "Spring Boot Applications",
+          "Productivity Optimization",
         ],
       },
       {
