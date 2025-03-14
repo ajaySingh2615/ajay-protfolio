@@ -10,6 +10,7 @@ import {
   FaReact,
   FaNodeJs,
   FaRocket,
+  FaWhatsapp,
 } from "react-icons/fa";
 import { SiTailwindcss, SiFramer } from "react-icons/si";
 
@@ -98,22 +99,27 @@ const Footer = () => {
     {
       name: "GitHub",
       icon: FaGithub,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/ajaySingh2615",
     },
     {
       name: "LinkedIn",
       icon: FaLinkedin,
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://www.linkedin.com/in/cadt14/",
     },
     {
       name: "Twitter",
       icon: FaTwitter,
-      url: "https://twitter.com/yourusername",
+      url: "https://x.com/ThakurAjay1605",
+    },
+    {
+      name: "WhatsApp",
+      icon: FaWhatsapp,
+      url: "https://wa.me/918808319836",
     },
     {
       name: "Email",
       icon: FaEnvelope,
-      url: "mailto:your.email@example.com",
+      url: "mailto:ajaysingh261526@gmail.com",
     },
   ];
 

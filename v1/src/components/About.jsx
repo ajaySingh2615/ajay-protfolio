@@ -16,8 +16,14 @@ import {
   FaDatabase,
   FaServer,
   FaProjectDiagram,
+  FaWhatsapp,
 } from "react-icons/fa";
-import { SiJavascript, SiReact, SiNodedotjs, SiPython } from "react-icons/si";
+import {
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiSpringboot,
+} from "react-icons/si";
 
 const About = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
@@ -89,11 +95,11 @@ const About = () => {
       bgColor: "rgba(51, 153, 51, 0.1)",
     },
     {
-      name: "Python",
+      name: "Spring Boot",
       level: 85,
-      color: "#3776AB",
-      Icon: SiPython,
-      bgColor: "rgba(55, 118, 171, 0.1)",
+      color: "#6DB33F",
+      Icon: SiSpringboot,
+      bgColor: "rgba(109, 179, 63, 0.1)",
     },
     {
       name: "AWS Cloud",
@@ -126,9 +132,14 @@ const About = () => {
   ];
 
   const socialLinks = [
-    { icon: FaGithub, url: "#", color: "#333" },
-    { icon: FaLinkedin, url: "#", color: "#0077B5" },
-    { icon: FaTwitter, url: "#", color: "#1DA1F2" },
+    { icon: FaGithub, url: "https://github.com/ajaySingh2615", color: "#333" },
+    {
+      icon: FaLinkedin,
+      url: "https://www.linkedin.com/in/cadt14/",
+      color: "#0077B5",
+    },
+    { icon: FaTwitter, url: "https://x.com/ThakurAjay1605", color: "#1DA1F2" },
+    { icon: FaWhatsapp, url: "https://wa.me/918808319836", color: "#25D366" },
   ];
 
   return (

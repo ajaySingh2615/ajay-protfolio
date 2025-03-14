@@ -10,6 +10,7 @@ import {
   FaCheck,
   FaExclamationTriangle,
   FaSpinner,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 const Contact = () => {
@@ -102,34 +103,48 @@ const Contact = () => {
     }, 1500);
   };
 
-  const contactInfo = [
-    {
-      icon: FaEnvelope,
-      title: "Email",
-      value: "contact@yourname.com",
-      link: "mailto:contact@yourname.com",
-      color: "from-blue-500 to-cyan-400",
-    },
-    {
-      icon: FaMapMarkerAlt,
-      title: "Location",
-      value: "New York, NY",
-      link: "https://maps.google.com/?q=New+York",
-      color: "from-purple-500 to-pink-500",
-    },
+  const contactDetails = [
     {
       icon: FaLinkedin,
       title: "LinkedIn",
-      value: "linkedin.com/in/yourname",
-      link: "https://linkedin.com/in/yourname",
-      color: "from-blue-600 to-blue-400",
+      value: "linkedin.com/in/cadt14",
+      link: "https://www.linkedin.com/in/cadt14/",
     },
     {
       icon: FaGithub,
       title: "GitHub",
-      value: "github.com/yourname",
-      link: "https://github.com/yourname",
-      color: "from-gray-700 to-gray-500",
+      value: "github.com/ajaySingh2615",
+      link: "https://github.com/ajaySingh2615",
+    },
+    {
+      icon: FaWhatsapp,
+      title: "WhatsApp",
+      value: "+91 8808319836",
+      link: "https://wa.me/918808319836",
+    },
+  ];
+
+  // Social media links
+  const socialLinks = [
+    {
+      icon: FaTwitter,
+      color: "bg-blue-500 hover:bg-blue-600",
+      link: "https://x.com/ThakurAjay1605",
+    },
+    {
+      icon: FaGithub,
+      color: "bg-gray-800 hover:bg-gray-900",
+      link: "https://github.com/ajaySingh2615",
+    },
+    {
+      icon: FaLinkedin,
+      color: "bg-blue-700 hover:bg-blue-800",
+      link: "https://www.linkedin.com/in/cadt14/",
+    },
+    {
+      icon: FaWhatsapp,
+      color: "bg-green-600 hover:bg-green-700",
+      link: "https://wa.me/918808319836",
     },
   ];
 
@@ -266,7 +281,7 @@ const Contact = () => {
             </h3>
 
             <div className="space-y-4">
-              {contactInfo.map((item, index) => (
+              {contactDetails.map((item, index) => (
                 <Motion.a
                   key={item.title}
                   href={item.link}
@@ -296,23 +311,7 @@ const Contact = () => {
             <div className="mt-8">
               <h4 className="text-light font-medium mb-4">Follow Me</h4>
               <div className="flex gap-3">
-                {[
-                  {
-                    icon: FaTwitter,
-                    color: "bg-blue-400",
-                    link: "https://twitter.com/yourname",
-                  },
-                  {
-                    icon: FaGithub,
-                    color: "bg-gray-700",
-                    link: "https://github.com/yourname",
-                  },
-                  {
-                    icon: FaLinkedin,
-                    color: "bg-blue-600",
-                    link: "https://linkedin.com/in/yourname",
-                  },
-                ].map((social, index) => (
+                {socialLinks.map((social, index) => (
                   <Motion.a
                     key={index}
                     href={social.link}

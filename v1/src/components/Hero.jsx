@@ -9,7 +9,10 @@ import {
   FaNodeJs,
   FaPython,
   FaAws,
+  FaEnvelope,
+  FaWhatsapp,
 } from "react-icons/fa";
+import { SiSpringboot } from "react-icons/si";
 import {
   // eslint-disable-next-line no-unused-vars
   motion as motion,
@@ -44,37 +47,52 @@ const Hero = () => {
   // Tech experience cards
   const techExperience = [
     {
+      name: "Java Full Stack",
+      icon: SiSpringboot,
+      color: "#61dafb",
+      skills: ["Spring Boot", "React.js", "Tailwind CSS", "Next.js"],
+      description:
+        "Building beautiful, responsive interfaces with modern tools and frameworks.",
+      years: "2.5+",
+    },
+    {
       name: "Frontend",
       icon: FaReact,
       color: "#61dafb",
       skills: ["React", "Next.js", "Tailwind CSS", "Three.js"],
       description:
         "Building beautiful, responsive interfaces with modern tools and frameworks.",
-      years: "5+",
+      years: "2+",
     },
     {
       name: "Backend",
       icon: FaNodeJs,
       color: "#68a063",
-      skills: ["Node.js", "Express", "API Design", "Microservices"],
-      description:
-        "Creating robust backend systems that power complex applications at scale.",
-      years: "4+",
-    },
-    {
-      name: "AI & ML",
-      icon: FaPython,
-      color: "#3776ab",
       skills: [
-        "Python",
-        "TensorFlow",
-        "Natural Language Processing",
-        "Computer Vision",
+        "Node.js",
+        "Express",
+        "Spring Boot",
+        "API Design",
+        "Microservices",
       ],
       description:
-        "Developing intelligent systems that learn and adapt to user needs.",
-      years: "3+",
+        "Creating robust backend systems that power complex applications at scale.",
+      years: "2.5+",
     },
+    // {
+    //   name: "AI & ML",
+    //   icon: FaPython,
+    //   color: "#3776ab",
+    //   skills: [
+    //     "Python",
+    //     "TensorFlow",
+    //     "Natural Language Processing",
+    //     "Computer Vision",
+    //   ],
+    //   description:
+    //     "Developing intelligent systems that learn and adapt to user needs.",
+    //   years: "3+",
+    // },
     {
       name: "Cloud",
       icon: FaAws,
@@ -82,7 +100,7 @@ const Hero = () => {
       skills: ["AWS", "Serverless", "DevOps", "CI/CD"],
       description:
         "Architecting scalable cloud solutions that grow with your business.",
-      years: "4+",
+      years: "2+",
     },
   ];
 
@@ -342,7 +360,7 @@ const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl"
               >
-                I create exceptional digital experiences that combine beautiful
+                I create exceptional experiences that combine beautiful
                 interfaces with powerful functionality to help businesses thrive
                 in the digital world.
               </motion.p>
@@ -450,7 +468,7 @@ const Hero = () => {
               className="flex items-center gap-6 pt-2 pb-4 sm:pb-0"
             >
               <motion.a
-                href="https://github.com/ajaysingh1997"
+                href="https://github.com/ajaySingh2615"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative text-gray-400 hover:text-white transition-colors duration-300"
@@ -467,7 +485,7 @@ const Hero = () => {
               </motion.a>
 
               <motion.a
-                href="https://www.linkedin.com/in/ajay-singh-1997/"
+                href="https://www.linkedin.com/in/cadt14/"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative text-gray-400 hover:text-white transition-colors duration-300"
@@ -484,7 +502,7 @@ const Hero = () => {
               </motion.a>
 
               <motion.a
-                href="https://twitter.com/ajaysingh1997"
+                href="https://x.com/ThakurAjay1605"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative text-gray-400 hover:text-white transition-colors duration-300"
@@ -498,6 +516,39 @@ const Hero = () => {
                   className="absolute -bottom-1 left-0 h-px bg-primary"
                 />
                 <span className="sr-only">Twitter</span>
+              </motion.a>
+
+              <motion.a
+                href="mailto:ajaysingh261526@gmail.com"
+                rel="noreferrer"
+                className="group relative text-gray-400 hover:text-white transition-colors duration-300"
+                whileHover={{ y: -3 }}
+              >
+                <FaEnvelope className="text-xl" />
+                <motion.span
+                  initial={{ width: "0%" }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute -bottom-1 left-0 h-px bg-primary"
+                />
+                <span className="sr-only">Email</span>
+              </motion.a>
+
+              <motion.a
+                href="https://wa.me/918808319836"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative text-gray-400 hover:text-white transition-colors duration-300"
+                whileHover={{ y: -3 }}
+              >
+                <FaWhatsapp className="text-xl" />
+                <motion.span
+                  initial={{ width: "0%" }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute -bottom-1 left-0 h-px bg-primary"
+                />
+                <span className="sr-only">WhatsApp</span>
               </motion.a>
             </motion.div>
           </div>
@@ -573,7 +624,7 @@ const Hero = () => {
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                         </span>
-                        10+ Years Experience
+                        3+ Years Experience
                       </span>
                     </motion.div>
 

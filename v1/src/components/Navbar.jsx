@@ -16,6 +16,7 @@ import {
   FaPhoneAlt,
   FaArrowRight,
   FaStar,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 const Navbar = () => {
@@ -121,25 +122,31 @@ const Navbar = () => {
     {
       name: "GitHub",
       icon: FaGithub,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/ajaySingh2615",
       color: "#333",
     },
     {
       name: "LinkedIn",
       icon: FaLinkedin,
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://www.linkedin.com/in/cadt14/",
       color: "#0077B5",
     },
     {
       name: "Twitter",
       icon: FaTwitter,
-      url: "https://twitter.com/yourusername",
+      url: "https://x.com/ThakurAjay1605",
       color: "#1DA1F2",
+    },
+    {
+      name: "WhatsApp",
+      icon: FaWhatsapp,
+      url: "https://wa.me/918808319836",
+      color: "#25D366",
     },
     {
       name: "Email",
       icon: FaEnvelope,
-      url: "mailto:your.email@example.com",
+      url: "mailto:ajaysingh261526@gmail.com",
       color: "#D44638",
     },
   ];
