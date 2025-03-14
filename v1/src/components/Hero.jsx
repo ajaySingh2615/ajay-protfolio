@@ -449,7 +449,8 @@ const Hero = () => {
               </motion.a>
 
               <motion.a
-                href="/resume.pdf"
+                href="/resume/Ajay-Singh-Resume.pdf"
+                download
                 className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 border border-gray-700 hover:border-primary/50 text-white font-medium rounded-lg overflow-hidden group transition-colors duration-300"
                 whileHover={{ scale: 1.02 }}
               >
@@ -607,7 +608,7 @@ const Hero = () => {
 
                     {/* Image */}
                     <img
-                      src="/profile.jpg"
+                      src="/profile/v1.JPG"
                       alt="Ajay Singh"
                       className="h-full w-full object-cover object-center"
                     />

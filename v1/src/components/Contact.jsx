@@ -74,36 +74,13 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) return;
-
-    setFormStatus("submitting");
-
-    // Simulate form submission
-    setTimeout(() => {
-      // For demo purposes, randomly succeed or fail
-      const success = Math.random() > 0.2;
-      setFormStatus(success ? "success" : "error");
-
-      if (success) {
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      }
-
-      // Reset status after 3 seconds
-      setTimeout(() => {
-        setFormStatus("idle");
-      }, 3000);
-    }, 1500);
-  };
-
   const contactDetails = [
+    {
+      icon: FaEnvelope,
+      title: "Email",
+      value: "ajaysingh261526@gmail.com",
+      link: "mailto:ajaysingh261526@gmail.com",
+    },
     {
       icon: FaLinkedin,
       title: "LinkedIn",
@@ -341,7 +318,46 @@ const Contact = () => {
                 Send Me a Message
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form
+                action="https://formsubmit.co/ajaysingh261526@gmail.com"
+                method="POST"
+                className="space-y-5"
+                onSubmit={(e) => {
+                  if (!validateForm()) {
+                    e.preventDefault();
+                    return;
+                  }
+                  setFormStatus("submitting");
+                  // Form will be submitted normally by the browser
+                  // We'll show success message and reset form
+                  setTimeout(() => {
+                    setFormStatus("success");
+                    setFormData({
+                      name: "",
+                      email: "",
+                      subject: "",
+                      message: "",
+                    });
+                    setTimeout(() => setFormStatus("idle"), 5000);
+                  }, 1000);
+                }}
+              >
+                {/* Honeypot field to prevent spam */}
+                <input type="text" name="_honey" style={{ display: "none" }} />
+
+                {/* Disable captcha */}
+                <input type="hidden" name="_captcha" value="false" />
+
+                {/* Return to the same page after submission */}
+                <input
+                  type="hidden"
+                  name="_next"
+                  value={window.location.href}
+                />
+
+                {/* Disable formsubmit.co email template */}
+                <input type="hidden" name="_template" value="table" />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Name Field */}
                   <div className="relative">
@@ -520,8 +536,6 @@ const Contact = () => {
                   disabled={
                     formStatus === "submitting" || formStatus === "success"
                   }
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                   className={`w-full py-3 px-6 rounded-xl font-medium flex items-center justify-center gap-2 transition-all duration-300 ${
                     formStatus === "success"
                       ? "bg-green-500 text-white"
@@ -529,6 +543,16 @@ const Contact = () => {
                       ? "bg-red-500 text-white"
                       : "bg-primary text-dark hover:bg-primary/90"
                   }`}
+                  whileHover={
+                    formStatus !== "submitting" && formStatus !== "success"
+                      ? { scale: 1.02 }
+                      : {}
+                  }
+                  whileTap={
+                    formStatus !== "submitting" && formStatus !== "success"
+                      ? { scale: 0.98 }
+                      : {}
+                  }
                 >
                   {formStatus === "idle" && (
                     <>
@@ -556,16 +580,11 @@ const Contact = () => {
                   )}
                 </Motion.button>
 
-                {/* Form Status Messages */}
-                {formStatus === "error" && (
-                  <Motion.p
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-red-400 text-sm text-center"
-                  >
-                    There was an error sending your message. Please try again.
-                  </Motion.p>
-                )}
+                {/* Note about first-time submission */}
+                <p className="text-sm text-gray-400 mt-2">
+                  <strong>Note:</strong> For first-time messages, you may need
+                  to check your email and confirm the submission.
+                </p>
               </form>
             </div>
           </Motion.div>
