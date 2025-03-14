@@ -267,9 +267,9 @@ const About = () => {
           </motion.h2>
         </div>
 
-        {/* Enhanced Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Enhanced Left Column */}
+        {/* SECTION 1: Image and Text side by side */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center mb-20">
+          {/* Image Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -428,160 +428,179 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced Right Column */}
+          {/* Text Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-10"
+            className="space-y-6"
           >
-            <div className="space-y-6">
-              <h3 className="text-3xl sm:text-4xl font-bold text-light leading-tight">
-                Crafting Digital Excellence with
-                <motion.span
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-primary bg-300% ml-2"
-                >
-                  Innovation
-                </motion.span>
-              </h3>
+            <h3 className="text-3xl sm:text-4xl font-bold text-light leading-tight">
+              Crafting Digital Excellence with
+              <motion.span
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-primary bg-300% ml-2"
+              >
+                Innovation
+              </motion.span>
+            </h3>
 
-              <p className="text-light/70 leading-relaxed text-lg">
-                With over a decade of experience in software development, I've
-                dedicated my career to creating innovative solutions that make a
-                difference. My journey in tech has been driven by a passion for
-                clean code, user-centric design, and cutting-edge technologies.
-              </p>
-
-              {/* Enhanced Skills Display */}
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    onHoverStart={() => setHoveredSkill(skill.name)}
-                    onHoverEnd={() => setHoveredSkill(null)}
-                    className="relative group"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <motion.div
-                      className="absolute inset-0 rounded-lg"
-                      style={{
-                        background: `linear-gradient(120deg, ${skill.bgColor}, ${skill.color}20)`,
-                        opacity: hoveredSkill === skill.name ? 1 : 0,
-                      }}
-                      animate={{
-                        scale: hoveredSkill === skill.name ? [1, 1.02, 1] : 1,
-                      }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    />
-                    <div className="relative p-4 rounded-lg">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-light font-medium flex items-center gap-2">
-                          <skill.Icon
-                            className="text-2xl"
-                            style={{ color: skill.color }}
-                          />
-                          {skill.name}
-                          {hoveredSkill === skill.name && (
-                            <motion.span
-                              initial={{ scale: 0 }}
-                              animate={{ scale: 1, rotate: 360 }}
-                              className="text-primary"
-                            >
-                              <FaStar className="text-sm" />
-                            </motion.span>
-                          )}
-                        </span>
-                        <span
-                          className="text-sm font-medium"
-                          style={{ color: skill.color }}
-                        >
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="h-2 bg-light/5 rounded-full overflow-hidden p-[1px]">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
-                          className="h-full rounded-full relative"
-                          style={{
-                            background: `linear-gradient(90deg, ${skill.color}, ${skill.color}88)`,
-                          }}
-                        >
-                          <motion.div
-                            className="absolute inset-0"
-                            animate={{
-                              background: [
-                                `linear-gradient(90deg, ${skill.color}00, ${skill.color}50)`,
-                                `linear-gradient(90deg, ${skill.color}50, ${skill.color}00)`,
-                              ],
-                            }}
-                            transition={{
-                              duration: 1.5,
-                              repeat: Infinity,
-                              ease: "linear",
-                            }}
-                          />
-                        </motion.div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Qualities Grid */}
-            <div className="grid sm:grid-cols-2 gap-6">
-              {qualities.map((quality, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div className="h-full p-6 rounded-xl bg-dark/50 backdrop-blur-sm border border-light/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-                    <div className="flex items-start gap-4">
-                      <div
-                        className="p-4 rounded-xl"
-                        style={{ backgroundColor: `${quality.color}15` }}
-                      >
-                        <quality.icon
-                          className="text-2xl"
-                          style={{ color: quality.color }}
-                        />
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-bold text-light mb-3 group-hover:text-primary transition-colors duration-300 flex items-center gap-2">
-                          {quality.title}
-                          <FaArrowRight className="text-sm opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300" />
-                        </h4>
-                        <p className="text-light/70 text-base leading-relaxed">
-                          {quality.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <p className="text-light/70 leading-relaxed text-lg">
+              With over a decade of experience in software development, I've
+              dedicated my career to creating innovative solutions that make a
+              difference. My journey in tech has been driven by a passion for
+              clean code, user-centric design, and cutting-edge technologies.
+            </p>
           </motion.div>
         </div>
+
+        {/* SECTION 2: Skills Display (Full Width) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-20"
+        >
+          <h3 className="text-2xl sm:text-3xl font-bold text-light leading-tight mb-8">
+            Technical <span className="text-primary">Expertise</span>
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                onHoverStart={() => setHoveredSkill(skill.name)}
+                onHoverEnd={() => setHoveredSkill(null)}
+                className="relative group"
+                whileHover={{ scale: 1.02 }}
+              >
+                <motion.div
+                  className="absolute inset-0 rounded-lg"
+                  style={{
+                    background: `linear-gradient(120deg, ${skill.bgColor}, ${skill.color}20)`,
+                    opacity: hoveredSkill === skill.name ? 1 : 0,
+                  }}
+                  animate={{
+                    scale: hoveredSkill === skill.name ? [1, 1.02, 1] : 1,
+                  }}
+                  transition={{ duration: 1, repeat: Infinity }}
+                />
+                <div className="relative p-4 rounded-lg">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-light font-medium flex items-center gap-2">
+                      <skill.Icon
+                        className="text-2xl"
+                        style={{ color: skill.color }}
+                      />
+                      {skill.name}
+                      {hoveredSkill === skill.name && (
+                        <motion.span
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1, rotate: 360 }}
+                          className="text-primary"
+                        >
+                          <FaStar className="text-sm" />
+                        </motion.span>
+                      )}
+                    </span>
+                    <span
+                      className="text-sm font-medium"
+                      style={{ color: skill.color }}
+                    >
+                      {skill.level}%
+                    </span>
+                  </div>
+                  <div className="h-2 bg-light/5 rounded-full overflow-hidden p-[1px]">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+                      className="h-full rounded-full relative"
+                      style={{
+                        background: `linear-gradient(90deg, ${skill.color}, ${skill.color}88)`,
+                      }}
+                    >
+                      <motion.div
+                        className="absolute inset-0"
+                        animate={{
+                          background: [
+                            `linear-gradient(90deg, ${skill.color}00, ${skill.color}50)`,
+                            `linear-gradient(90deg, ${skill.color}50, ${skill.color}00)`,
+                          ],
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                      />
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* SECTION 3: Qualities Cards (Full Width) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3 className="text-2xl sm:text-3xl font-bold text-light leading-tight mb-8">
+            Professional <span className="text-primary">Qualities</span>
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {qualities.map((quality, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative"
+              >
+                <div className="h-full p-6 rounded-xl bg-dark/50 backdrop-blur-sm border border-light/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                  <div className="flex items-start gap-4">
+                    <div
+                      className="p-4 rounded-xl"
+                      style={{ backgroundColor: `${quality.color}15` }}
+                    >
+                      <quality.icon
+                        className="text-2xl"
+                        style={{ color: quality.color }}
+                      />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-light mb-3 group-hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                        {quality.title}
+                        <FaArrowRight className="text-sm opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300" />
+                      </h4>
+                      <p className="text-light/70 text-base leading-relaxed">
+                        {quality.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -158,7 +158,7 @@ const Experience = () => {
   const activeExp = experienceData.find((exp) => exp.id === activeExperience);
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#0a0a0a]">
+    <section className="py-12 md:py-24 relative overflow-hidden bg-[#0a0a0a]">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-5" />
@@ -197,13 +197,13 @@ const Experience = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <Motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-blue-500/10 rounded-full px-6 py-2 mb-4 border border-primary/20 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-blue-500/10 rounded-full px-4 sm:px-6 py-2 mb-4 border border-primary/20 backdrop-blur-sm"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-primary font-medium text-sm">
@@ -216,7 +216,7 @@ const Experience = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl font-bold text-white mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6"
           >
             Professional Experience
           </Motion.h2>
@@ -225,16 +225,44 @@ const Experience = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-2xl mx-auto text-gray-400 text-lg"
+            className="max-w-2xl mx-auto text-gray-400 text-base md:text-lg px-2"
           >
             My journey through the tech industry, building innovative solutions
             and leading development teams.
           </Motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Side - Experience Timeline */}
-          <div className="lg:col-span-4 space-y-4">
+        {/* Mobile Timeline Navigation */}
+        <div className="lg:hidden mb-8 overflow-x-auto pb-4 scrollbar-hide">
+          <div className="flex space-x-2 min-w-max">
+            {experienceData.map((exp) => (
+              <button
+                key={exp.id}
+                onClick={() => setActiveExperience(exp.id)}
+                className={`py-2 px-4 rounded-full text-sm whitespace-nowrap transition-all duration-300 ${
+                  activeExperience === exp.id
+                    ? "bg-primary/20 text-primary border border-primary/30"
+                    : "bg-gray-800/50 text-gray-300 border border-gray-700 hover:border-gray-600"
+                }`}
+                style={{
+                  boxShadow:
+                    activeExperience === exp.id
+                      ? `0 0 10px ${exp.color}30`
+                      : "none",
+                }}
+              >
+                <div className="flex items-center gap-2">
+                  <exp.icon className="text-sm" />
+                  <span>{exp.company}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          {/* Left Side - Experience Timeline (hidden on mobile) */}
+          <div className="hidden lg:block lg:col-span-4 space-y-4">
             {experienceData.map((exp, index) => (
               <Motion.div
                 key={exp.id}
@@ -340,11 +368,11 @@ const Experience = () => {
                 }}
               >
                 {/* Header */}
-                <div className="p-8 border-b border-gray-800 relative overflow-hidden">
+                <div className="p-5 sm:p-8 border-b border-gray-800 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full" />
 
                   <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
                       <div
                         className="p-3 rounded-lg"
                         style={{
@@ -355,14 +383,14 @@ const Experience = () => {
                         <activeExp.icon className="text-2xl" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-white">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mt-2 sm:mt-0">
                           {activeExp.role}
                         </h3>
                         <p className="text-gray-400">{activeExp.company}</p>
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-400">
+                    <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-400">
                       <div className="flex items-center gap-2">
                         <FaCalendarAlt style={{ color: activeExp.color }} />
                         <span>{activeExp.period}</span>
@@ -384,12 +412,14 @@ const Experience = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
-                  <p className="text-gray-300 mb-8">{activeExp.description}</p>
+                <div className="p-5 sm:p-8">
+                  <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
+                    {activeExp.description}
+                  </p>
 
                   {/* Technologies */}
-                  <div className="mb-8">
-                    <h4 className="text-white font-medium mb-4 flex items-center gap-2">
+                  <div className="mb-6 sm:mb-8">
+                    <h4 className="text-white font-medium mb-3 sm:mb-4 flex items-center gap-2">
                       <FaCode style={{ color: activeExp.color }} />
                       <span>Technologies</span>
                     </h4>
@@ -400,7 +430,7 @@ const Experience = () => {
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.3, delay: i * 0.05 }}
-                          className="px-4 py-2 rounded-lg bg-gray-800 text-gray-300 text-sm border border-gray-700 hover:border-primary/30 transition-all duration-300"
+                          className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-gray-800 text-gray-300 text-xs sm:text-sm border border-gray-700 hover:border-primary/30 transition-all duration-300"
                         >
                           {tech}
                         </Motion.span>
@@ -408,22 +438,22 @@ const Experience = () => {
                     </div>
                   </div>
 
-                  {/* Two Column Layout for Responsibilities and Achievements */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Responsibilities and Achievements (stacked on mobile, two columns on larger screens) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                     {/* Responsibilities */}
                     <div>
-                      <h4 className="text-white font-medium mb-4 flex items-center gap-2">
+                      <h4 className="text-white font-medium mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
                         <FaTasks style={{ color: activeExp.color }} />
                         <span>Key Responsibilities</span>
                       </h4>
-                      <ul className="space-y-3">
+                      <ul className="space-y-2 sm:space-y-3">
                         {activeExp.responsibilities.map((resp, i) => (
                           <Motion.li
                             key={i}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: i * 0.1 }}
-                            className="flex items-start gap-3 text-gray-400"
+                            className="flex items-start gap-2 sm:gap-3 text-gray-400 text-sm sm:text-base"
                           >
                             <span
                               className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
@@ -437,18 +467,18 @@ const Experience = () => {
 
                     {/* Achievements */}
                     <div>
-                      <h4 className="text-white font-medium mb-4 flex items-center gap-2">
+                      <h4 className="text-white font-medium mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
                         <FaAward style={{ color: activeExp.color }} />
                         <span>Key Achievements</span>
                       </h4>
-                      <ul className="space-y-3">
+                      <ul className="space-y-2 sm:space-y-3">
                         {activeExp.achievements.map((achievement, i) => (
                           <Motion.li
                             key={i}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: i * 0.1 + 0.3 }}
-                            className="flex items-start gap-3 text-gray-400"
+                            className="flex items-start gap-2 sm:gap-3 text-gray-400 text-sm sm:text-base"
                           >
                             <span
                               className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
@@ -462,12 +492,12 @@ const Experience = () => {
                   </div>
 
                   {/* Website Link */}
-                  <div className="mt-8 pt-6 border-t border-gray-800">
+                  <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-800">
                     <a
                       href={activeExp.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-all duration-300 text-sm font-medium group"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-all duration-300 text-xs sm:text-sm font-medium group"
                     >
                       <span style={{ color: activeExp.color }}>
                         Visit Company Website
