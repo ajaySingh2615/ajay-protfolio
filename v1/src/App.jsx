@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
@@ -11,14 +12,29 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="bg-dark min-h-screen text-light">
+      <Navbar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Hero />
-        <About />
-        <Projects />
-        <Education />
-        <Skills />
-        <Experience />
-        <Contact />
+        <section id="home" className="pt-16 sm:pt-20">
+          <Hero />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="education">
+          <Education />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="experience">
+          <Experience />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
       </div>
       <Footer />
     </div>

@@ -155,12 +155,12 @@ const Footer = () => {
       </div>
 
       {/* Rocket Back to Top Button */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-        <div className="flex justify-center">
-          <div className="relative h-20">
+      <div className="relative w-full mx-auto pt-6 sm:pt-10 md:pt-12 pb-4 sm:pb-6">
+        <div className="flex justify-center items-center">
+          <div className="relative h-16 sm:h-20 w-16 sm:w-20 flex items-center justify-center">
             {/* Rocket */}
             <Motion.div
-              className="absolute left-1/2 -translate-x-1/2 z-10"
+              className="absolute z-10"
               style={{ bottom: isScrolling ? 0 : 20 }}
               animate={{ y: rocketPosition }}
               transition={{
@@ -172,12 +172,12 @@ const Footer = () => {
                 onClick={scrollToTop}
                 whileHover={!isScrolling ? { scale: 1.1 } : {}}
                 whileTap={!isScrolling ? { scale: 0.95 } : {}}
-                className="relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-primary to-blue-500 text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
+                className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-primary to-blue-500 text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
                 aria-label="Back to top"
                 disabled={isScrolling}
               >
                 <FaRocket
-                  className={`text-2xl ${
+                  className={`text-lg sm:text-xl md:text-2xl ${
                     isScrolling ? "rotate-0" : "-rotate-45"
                   } transition-transform duration-300`}
                 />
@@ -191,7 +191,7 @@ const Footer = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{
                           opacity: [0.7, 1, 0.7],
-                          height: ["30px", "50px", "30px"],
+                          height: ["20px", "40px", "20px"],
                         }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{
@@ -199,7 +199,7 @@ const Footer = () => {
                           duration: 0.3,
                           repeatType: "reverse",
                         }}
-                        className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-t from-orange-600 via-yellow-500 to-transparent rounded-full blur-[2px]"
+                        className="absolute -bottom-6 sm:-bottom-8 left-1/2 -translate-x-1/2 w-6 sm:w-8 bg-gradient-to-t from-orange-600 via-yellow-500 to-transparent rounded-full blur-[2px]"
                       />
 
                       {/* Secondary flame */}
@@ -207,7 +207,7 @@ const Footer = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{
                           opacity: [0.5, 0.8, 0.5],
-                          height: ["20px", "35px", "20px"],
+                          height: ["15px", "25px", "15px"],
                         }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{
@@ -216,11 +216,11 @@ const Footer = () => {
                           repeatType: "reverse",
                           delay: 0.1,
                         }}
-                        className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-5 bg-gradient-to-t from-yellow-500 via-yellow-300 to-transparent rounded-full blur-[1px]"
+                        className="absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 w-4 sm:w-5 bg-gradient-to-t from-yellow-500 via-yellow-300 to-transparent rounded-full blur-[1px]"
                       />
 
                       {/* Smoke particles */}
-                      {[...Array(12)].map((_, i) => (
+                      {[...Array(8)].map((_, i) => (
                         <Motion.div
                           key={i}
                           initial={{
@@ -230,8 +230,8 @@ const Footer = () => {
                           }}
                           animate={{
                             opacity: [0, 0.5, 0],
-                            x: (i % 2 === 0 ? 1 : -1) * (Math.random() * 30),
-                            y: 20 + Math.random() * 30,
+                            x: (i % 2 === 0 ? 1 : -1) * (Math.random() * 20),
+                            y: 15 + Math.random() * 20,
                           }}
                           transition={{
                             duration: 1 + Math.random() * 0.5,
@@ -239,7 +239,7 @@ const Footer = () => {
                             repeatType: "loop",
                             delay: i * 0.08,
                           }}
-                          className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-300/80 rounded-full blur-[1px]"
+                          className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-300/80 rounded-full blur-[1px]"
                         />
                       ))}
                     </>
@@ -249,14 +249,14 @@ const Footer = () => {
             </Motion.div>
 
             {/* Launch pad base */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-1 bg-gray-700 rounded-full" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 sm:w-10 h-1 bg-gray-700 rounded-full" />
 
-            {/* Hover text */}
+            {/* Hover text - hidden on small mobile, visible on hover for larger screens */}
             <Motion.div
               initial={{ opacity: 0, y: 10 }}
               whileHover={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-xs px-3 py-1 rounded-full"
+              className="absolute -bottom-8 sm:-bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full hidden sm:block"
             >
               Blast to top 🚀
             </Motion.div>
@@ -272,7 +272,7 @@ const Footer = () => {
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-1 bg-primary/50 rounded-full blur-[3px]"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 sm:w-10 h-1 bg-primary/50 rounded-full blur-[3px]"
             />
 
             {/* Launch effect - only visible during launch */}
@@ -283,7 +283,7 @@ const Footer = () => {
                   animate={{ opacity: [0, 0.8, 0], scale: [0.5, 2, 3] }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-10 bg-orange-500/50 rounded-full blur-[5px]"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 sm:w-10 h-8 sm:h-10 bg-orange-500/50 rounded-full blur-[5px]"
                 />
               )}
             </AnimatePresence>
@@ -292,17 +292,17 @@ const Footer = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Brand Column */}
-          <div className="space-y-6">
-            <div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-8 lg:gap-12">
+          {/* Brand Column - Full width and centered on mobile */}
+          <div className="col-span-1 space-y-4 sm:space-y-6 flex flex-col items-center sm:items-start text-center sm:text-left">
+            <div className="flex flex-col items-center sm:items-start">
               <Motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="text-2xl font-bold text-white"
+                className="text-xl sm:text-2xl font-bold text-white"
               >
                 Ajay Singh
               </Motion.h2>
@@ -319,7 +319,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-gray-400"
+              className="text-sm sm:text-base text-gray-400"
             >
               Full Stack Developer specializing in building exceptional digital
               experiences with modern technologies.
@@ -340,20 +340,20 @@ const Footer = () => {
                   className="text-gray-400 hover:text-primary transition-colors duration-300"
                   aria-label={social.name}
                 >
-                  <social.icon className="text-xl" />
+                  <social.icon className="text-lg sm:text-xl" />
                 </a>
               ))}
             </Motion.div>
           </div>
 
           {/* Quick Links Column */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 flex flex-col items-center sm:items-start text-center sm:text-left">
             <Motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-lg font-semibold text-white"
+              className="text-base sm:text-lg font-semibold text-white"
             >
               Quick Links
             </Motion.h3>
@@ -362,13 +362,16 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-3"
+              className="grid grid-cols-1 gap-y-2 sm:gap-y-3 w-full"
             >
               {quickLinks.map((link) => (
-                <li key={link.name}>
+                <li
+                  key={link.name}
+                  className="flex justify-center sm:justify-start"
+                >
                   <a
                     href={`#${link.url}`}
-                    className="text-gray-400 hover:text-primary transition-colors duration-300 flex items-center gap-2 group"
+                    className="text-sm sm:text-base text-gray-400 hover:text-primary transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-primary transition-colors duration-300"></span>
                     {link.name}
@@ -379,13 +382,13 @@ const Footer = () => {
           </div>
 
           {/* Tech Stack Column */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 flex flex-col items-center sm:items-start text-center sm:text-left">
             <Motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-lg font-semibold text-white"
+              className="text-base sm:text-lg font-semibold text-white"
             >
               Built With
             </Motion.h3>
@@ -394,32 +397,34 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-wrap gap-3"
+              className="flex flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start"
             >
               {techStack.map((tech) => (
                 <div
                   key={tech.name}
-                  className="flex items-center gap-2 px-3 py-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-primary/50 transition-colors duration-300 group"
+                  className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-primary/50 transition-colors duration-300 group"
                   title={tech.name}
                 >
                   <tech.icon
-                    className="text-lg group-hover:text-primary transition-colors duration-300"
+                    className="text-sm sm:text-lg group-hover:text-primary transition-colors duration-300"
                     style={{ color: tech.color }}
                   />
-                  <span className="text-sm text-gray-300">{tech.name}</span>
+                  <span className="text-xs sm:text-sm text-gray-300">
+                    {tech.name}
+                  </span>
                 </div>
               ))}
             </Motion.div>
           </div>
 
           {/* Contact Column */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 flex flex-col items-center sm:items-start text-center sm:text-left">
             <Motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-lg font-semibold text-white"
+              className="text-base sm:text-lg font-semibold text-white"
             >
               Get In Touch
             </Motion.h3>
@@ -428,7 +433,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-gray-400"
+              className="text-sm sm:text-base text-gray-400"
             >
               Have a project in mind or want to collaborate? Feel free to reach
               out.
@@ -439,9 +444,9 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
               href="#contact"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 rounded-lg text-primary transition-all duration-300"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 rounded-lg text-primary transition-all duration-300 text-sm sm:text-base"
             >
-              <FaEnvelope />
+              <FaEnvelope className="text-sm sm:text-base" />
               <span>Contact Me</span>
             </Motion.a>
           </div>
@@ -450,16 +455,16 @@ const Footer = () => {
 
       {/* Copyright Bar */}
       <div className="relative border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-500 text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 sm:gap-4">
+            <div className="text-gray-500 text-xs sm:text-sm text-center sm:text-left">
               © {currentYear} Ajay Singh. All rights reserved.
             </div>
-            <div className="flex items-center gap-2 text-gray-500 text-sm">
+            <div className="flex items-center gap-1 sm:gap-2 text-gray-500 text-xs sm:text-sm">
               <span>Made with</span>
-              <FaHeart className="text-red-500 animate-pulse" />
+              <FaHeart className="text-red-500 animate-pulse text-xs sm:text-sm" />
               <span>and</span>
-              <FaCode className="text-primary" />
+              <FaCode className="text-primary text-xs sm:text-sm" />
             </div>
           </div>
         </div>
