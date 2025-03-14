@@ -37,28 +37,32 @@ const About = () => {
 
   const qualities = [
     {
-      icon: FaCode,
-      title: "Clean Code Advocate",
-      description:
-        "Writing maintainable, scalable, and efficient code following best practices and design patterns.",
-    },
-    {
-      icon: FaLightbulb,
-      title: "Problem Solver",
-      description:
-        "Approaching challenges with analytical thinking and innovative solutions.",
-    },
-    {
       icon: FaRocket,
-      title: "Performance Focused",
+      title: "Frontend Specialist",
       description:
-        "Optimizing applications for speed, efficiency, and exceptional user experience.",
+        "Creating beautiful, responsive web applications with React and modern UI libraries.",
+      color: "#FF6B6B",
     },
     {
-      icon: FaUsers,
-      title: "Team Collaborator",
+      icon: FaServer,
+      title: "Backend Developer",
       description:
-        "Working effectively with cross-functional teams to deliver outstanding results.",
+        "Building robust APIs and server solutions with Node.js and cloud technologies.",
+      color: "#4ECDC4",
+    },
+    {
+      icon: FaDatabase,
+      title: "Database Expert",
+      description:
+        "Designing efficient database architectures with MongoDB, PostgreSQL, and Redis.",
+      color: "#FFD93D",
+    },
+    {
+      icon: FaCode,
+      title: "Clean Coder",
+      description:
+        "Writing maintainable, tested, and scalable code following best practices.",
+      color: "#6C63FF",
     },
   ];
 
@@ -540,51 +544,37 @@ const About = () => {
               </div>
             </div>
 
-            {/* Enhanced Qualities Grid */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            {/* Qualities Grid */}
+            <div className="grid sm:grid-cols-2 gap-6">
               {qualities.map((quality, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  className="p-6 rounded-xl bg-gradient-to-br from-light/5 to-light/[0.02] border border-light/10 hover:border-primary/30 transition-all duration-300 group hover:shadow-xl hover:shadow-primary/5 relative overflow-hidden"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative"
                 >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0"
-                    animate={{
-                      x: ["-100%", "100%"],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  />
-                  <div className="flex items-start gap-4 relative">
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.2 }}
-                      transition={{ duration: 0.6 }}
-                      className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 text-primary group-hover:scale-110 transition-transform duration-300"
-                    >
-                      <quality.icon className="text-2xl" />
-                    </motion.div>
-                    <div>
-                      <h4 className="text-light font-semibold mb-2 flex items-center gap-2 group-hover:text-primary transition-colors duration-300">
-                        {quality.title}
-                        <motion.div
-                          initial={{ x: -10, opacity: 0 }}
-                          whileHover={{ x: 0, opacity: 1 }}
-                          className="text-primary"
-                        >
-                          <FaArrowRight className="text-sm" />
-                        </motion.div>
-                      </h4>
-                      <p className="text-light/60 text-sm leading-relaxed">
-                        {quality.description}
-                      </p>
+                  <div className="h-full p-6 rounded-xl bg-dark/50 backdrop-blur-sm border border-light/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="p-4 rounded-xl"
+                        style={{ backgroundColor: `${quality.color}15` }}
+                      >
+                        <quality.icon
+                          className="text-2xl"
+                          style={{ color: quality.color }}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-light mb-3 group-hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                          {quality.title}
+                          <FaArrowRight className="text-sm opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300" />
+                        </h4>
+                        <p className="text-light/70 text-base leading-relaxed">
+                          {quality.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
