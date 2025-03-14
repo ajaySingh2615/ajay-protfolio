@@ -13,6 +13,7 @@ import {
   FaCalendar,
   FaArrowRight,
   FaTools,
+  FaBuilding,
 } from "react-icons/fa";
 
 const Projects = () => {
@@ -37,7 +38,7 @@ const Projects = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const categories = ["All", "Web App", "Mobile", "AI/ML", "Backend"];
+  const categories = ["All", "Backend", "Frontend", "Full-stack"];
   const sortOptions = [
     { value: "featured", label: "Featured", icon: FaStar },
     { value: "stars", label: "Most Stars", icon: FaCodeBranch },
@@ -46,104 +47,100 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "E-Commerce Backend API",
       description:
-        "A full-stack e-commerce solution with real-time inventory, payment processing, and admin dashboard.",
-      image: "/projects/ecommerce.jpg",
-      category: "Web App",
-      techStack: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveDemo: "https://demo.example.com",
-      sourceCode: "https://github.com/yourusername/project",
-      featured: true,
-      stats: {
-        stars: 128,
-        views: 2.5,
-        forks: 34,
-      },
-      highlights: [
-        "Real-time inventory management",
-        "Secure payment processing",
-        "Advanced admin dashboard",
-        "Analytics integration",
-      ],
-      date: "2024-02",
-      status: "Active",
-      tools: ["VS Code", "Git", "Docker", "AWS"],
-    },
-    {
-      title: "AI Image Generator",
-      description:
-        "An AI-powered image generation tool using state-of-the-art machine learning models.",
-      image: "/projects/ai-image.jpg",
-      category: "AI/ML",
-      techStack: ["Python", "TensorFlow", "React", "FastAPI"],
-      liveDemo: "https://demo.example.com",
-      sourceCode: "https://github.com/yourusername/project",
-      featured: true,
-      stats: {
-        stars: 245,
-        views: 5.8,
-        forks: 89,
-      },
-      highlights: [
-        "State-of-the-art ML models",
-        "Real-time image generation",
-        "Custom style transfer",
-        "API integration",
-      ],
-      date: "2024-01",
-      status: "Active",
-      tools: ["PyCharm", "Git", "Docker", "Google Cloud"],
-    },
-    {
-      title: "Task Management App",
-      description:
-        "A mobile-first task management application with real-time collaboration features.",
-      image: "/projects/task-app.jpg",
-      category: "Mobile",
-      techStack: ["React Native", "Firebase", "Redux", "Node.js"],
-      liveDemo: "https://demo.example.com",
-      sourceCode: "https://github.com/yourusername/project",
-      featured: false,
-      stats: {
-        stars: 167,
-        views: 3.2,
-        forks: 45,
-      },
-      highlights: [
-        "Real-time collaboration",
-        "Cross-platform support",
-        "Offline functionality",
-        "Push notifications",
-      ],
-      date: "2023-12",
-      status: "Active",
-      tools: ["Android Studio", "Git", "Firebase Console", "AWS"],
-    },
-    {
-      title: "API Gateway Service",
-      description:
-        "A high-performance API gateway with rate limiting, caching, and analytics.",
-      image: "/projects/api-gateway.jpg",
+        "A robust backend API for an e-commerce platform with secure authentication, role-based authorization, and comprehensive RESTful endpoints for product, user, and order management.",
+      image: "/projects/ecommerce-api.jpg",
       category: "Backend",
-      techStack: ["Go", "Redis", "Docker", "Kubernetes"],
-      liveDemo: "https://demo.example.com",
-      sourceCode: "https://github.com/yourusername/project",
-      featured: false,
+      techStack: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "RESTful APIs",
+        "JWT",
+        "Mongoose",
+      ],
+      liveDemo: "#",
+      sourceCode: "https://github.com/ajaySingh2615/play-tube",
       stats: {
-        stars: 312,
-        views: 7.4,
-        forks: 92,
+        stars: 12,
+        views: 2.5,
+        forks: 4,
       },
       highlights: [
-        "High-performance routing",
-        "Advanced rate limiting",
-        "Real-time analytics",
-        "Microservices support",
+        "Implemented JWT-based authentication and role-based authorization",
+        "Designed and built a comprehensive RESTful API following MVC architecture",
+        "Integrated MongoDB with Mongoose for efficient data modeling and validation",
+        "Created middleware for error handling, request validation, and security",
       ],
-      date: "2023-11",
-      status: "Active",
-      tools: ["VS Code", "Git", "Docker", "Google Cloud"],
+      date: "2024-10-01",
+      status: "Completed",
+      tools: ["Postman", "GitHub", "VS Code", "Git"],
+      featured: true,
+      company: "Brenolabs",
+      period: "Oct-Nov 2024",
+    },
+    {
+      title: "Wanderlust Website",
+      description:
+        "A full-stack web application for exploring, reviewing, and sharing travel destinations. Features user authentication, dynamic image uploads, interactive maps, and rich content management.",
+      image: "/projects/wanderlust.jpg",
+      category: "Full-stack",
+      techStack: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "EJS",
+        "JavaScript",
+        "Bootstrap",
+        "CSS",
+      ],
+      liveDemo: "#",
+      sourceCode: "https://github.com/ajaySingh2615/Full_Stack_Project",
+      stats: {
+        stars: 8,
+        views: 1.8,
+        forks: 3,
+      },
+      highlights: [
+        "Built user authentication system with session management and password hashing",
+        "Integrated MongoDB with Mongoose for structured data models and validation",
+        "Implemented MVC architecture for clean code organization",
+        "Created responsive UI with Bootstrap and custom CSS",
+      ],
+      date: "2023-05-15",
+      status: "Completed",
+      tools: ["GitHub", "VS Code", "Git", "Cloudinary"],
+      featured: true,
+      company: "IIMT College of Engineering, Greater Noida",
+      period: "May-Sep 2023",
+    },
+    {
+      title: "Indian Dry-Cleaner Website",
+      description:
+        "A responsive website for a local dry cleaning service featuring service details, pricing, location information, and WhatsApp integration for immediate booking and inquiries.",
+      image: "/projects/dry-cleaner.jpg",
+      category: "Frontend",
+      techStack: ["HTML5", "CSS", "JavaScript", "Bootstrap"],
+      liveDemo: "#",
+      sourceCode: "#",
+      stats: {
+        stars: 5,
+        views: 1.2,
+        forks: 1,
+      },
+      highlights: [
+        "Designed responsive layouts using Bootstrap and custom CSS",
+        "Implemented WhatsApp API integration for direct customer booking",
+        "Created interactive pricing calculator for different services",
+        "Optimized images and assets for fast page loading",
+      ],
+      date: "2023-02-10",
+      status: "Completed",
+      tools: ["GitHub", "VS Code", "Figma"],
+      featured: false,
+      company: "Tata Consultancy Services",
+      period: "Feb-May 2023",
     },
   ];
 
@@ -311,7 +308,7 @@ const Projects = () => {
               },
               {
                 label: "Active Projects",
-                value: projects.filter((p) => p.status === "Active").length,
+                value: projects.filter((p) => p.status === "Completed").length,
                 icon: FaTools,
               },
               {
@@ -496,6 +493,7 @@ const Projects = () => {
                       <img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent opacity-60" />
@@ -572,7 +570,7 @@ const Projects = () => {
                             <span className="w-1 h-1 rounded-full bg-light/30" />
                             <span
                               className={`px-2 py-0.5 rounded-full text-xs ${
-                                project.status === "Active"
+                                project.status === "Completed"
                                   ? "bg-green-500/20 text-green-400"
                                   : "bg-yellow-500/20 text-yellow-400"
                               }`}
@@ -580,6 +578,18 @@ const Projects = () => {
                               {project.status}
                             </span>
                           </div>
+                          {project.company && (
+                            <div className="flex items-center gap-2 mt-1 text-light/60 text-sm">
+                              <FaBuilding className="text-xs" />
+                              <span>{project.company}</span>
+                              {project.period && (
+                                <>
+                                  <span className="w-1 h-1 rounded-full bg-light/30" />
+                                  <span>{project.period}</span>
+                                </>
+                              )}
+                            </div>
+                          )}
                         </div>
                         <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
                           {project.category}
