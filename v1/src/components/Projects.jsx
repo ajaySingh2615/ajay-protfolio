@@ -50,7 +50,7 @@ const Projects = () => {
       title: "E-Commerce Backend API",
       description:
         "A robust backend API for an e-commerce platform with secure authentication, role-based authorization, and comprehensive RESTful endpoints for product, user, and order management.",
-      image: "/projects/ecommerce-api.jpg",
+      image: "/projects/ecommerce-api.jpeg",
       category: "Backend",
       techStack: [
         "Node.js",
@@ -84,7 +84,7 @@ const Projects = () => {
       title: "Wanderlust Website",
       description:
         "A full-stack web application for exploring, reviewing, and sharing travel destinations. Features user authentication, dynamic image uploads, interactive maps, and rich content management.",
-      image: "/projects/wanderlust.jpg",
+      image: "/projects/wanderlust.jpeg",
       category: "Full-stack",
       techStack: [
         "Node.js",
@@ -119,7 +119,7 @@ const Projects = () => {
       title: "Indian Dry-Cleaner Website",
       description:
         "A responsive website for a local dry cleaning service featuring service details, pricing, location information, and WhatsApp integration for immediate booking and inquiries.",
-      image: "/projects/dry-cleaner.jpg",
+      image: "/projects/dry-cleaner.jpeg",
       category: "Frontend",
       techStack: ["HTML5", "CSS", "JavaScript", "Bootstrap"],
       liveDemo: "#",
