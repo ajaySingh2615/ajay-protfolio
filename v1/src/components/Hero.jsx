@@ -36,8 +36,14 @@ const Hero = () => {
     { name: "AWS", icon: FaAws },
   ];
 
-  const particlesInit = async (main) => {
-    await loadFull(main);
+  const particlesInit = async (engine) => {
+    try {
+      // For newer versions of tsparticles
+      await loadFull(engine);
+    } catch (error) {
+      console.warn("Error initializing particles:", error);
+      // Fallback for older versions or error handling
+    }
   };
 
   const particlesConfig = {
@@ -52,7 +58,7 @@ const Hero = () => {
         direction: "none",
         random: true,
         straight: false,
-        outModes: { default: "bounce" },
+        out_mode: "out",
       },
       links: {
         enable: true,
@@ -62,6 +68,18 @@ const Hero = () => {
         width: 1,
       },
     },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: false },
+        resize: true,
+      },
+      modes: {
+        grab: { distance: 140, line_linked: { opacity: 0.3 } },
+      },
+    },
+    retina_detect: true,
   };
 
   useEffect(() => {
@@ -70,7 +88,7 @@ const Hero = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [roles.length]);
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-dark to-dark/95 font-sans">
@@ -80,6 +98,7 @@ const Hero = () => {
         init={particlesInit}
         options={particlesConfig}
         className="absolute inset-0"
+        style={{ position: "absolute", zIndex: 0 }}
       />
 
       {/* Enhanced Background Elements */}
