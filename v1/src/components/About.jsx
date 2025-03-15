@@ -358,7 +358,7 @@ const About = () => {
                       }}
                       className="text-2xl text-primary font-bold relative z-10"
                     >
-                      10+
+                      2.5+
                     </motion.span>
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-primary/20 to-blue-500/20"
